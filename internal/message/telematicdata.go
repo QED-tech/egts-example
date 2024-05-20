@@ -27,7 +27,8 @@ func CreateTelematicDataMessage(pid int) ([]byte, error) {
 				RecordProcessingPriority: "10",
 				TimeFieldExists:          "0",
 				EventIDFieldExists:       "0",
-				ObjectIDFieldExists:      "0",
+				ObjectIDFieldExists:      "1",
+				ObjectIdentifier:         uint32(999),
 				SourceServiceType:        egts.TeledataService,
 				RecipientServiceType:     egts.TeledataService,
 				RecordDataSet: egts.RecordDataSet{
