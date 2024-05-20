@@ -20,7 +20,7 @@ func CreateAuthMessage() ([]byte, error) {
 		Route:            "0",
 		EncryptionAlg:    "00",
 		Compression:      "0",
-		Priority:         "10",
+		Priority:         "00",
 		HeaderLength:     11,
 		HeaderEncoding:   0,
 		PacketIdentifier: uint16(AuthMessagePID),
