@@ -3,6 +3,7 @@ package main
 import (
 	"egts-demo/internal/message"
 	"egts-demo/internal/network"
+	"encoding/hex"
 	"flag"
 	"fmt"
 	"github.com/kuznetsovin/egts-protocol/libs/egts"
@@ -32,6 +33,8 @@ func sendAuthMessage(client *network.Client) {
 		log.Fatal(err)
 	}
 
+	fmt.Printf("PID: %d, Encoded package: %s\n", message.AuthMessagePID, hex.EncodeToString(authMessage))
+
 	ackAuth, err := client.Send(authMessage)
 	if err != nil {
 		log.Fatal(err)
@@ -56,6 +59,8 @@ func sendTelematicDataMessage(client *network.Client, pid int) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Printf("PID: %d, Encoded package: %s\n", pid, hex.EncodeToString(telematicDataMessage))
 
 	ackTelematicData, err := client.Send(telematicDataMessage)
 	if err != nil {
